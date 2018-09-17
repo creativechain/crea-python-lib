@@ -1,8 +1,11 @@
 #!/bin/bash
 
-TAG=$1;
+TAG=$1
+MSG="Version ${TAG}"
 
-git tag v${TAG} -m "Version ${TAG}"
+git add .
+git commit -m ${MSG}
+git tag v${TAG} -m ${MSG}
 
 rm -rf dist/*
 
