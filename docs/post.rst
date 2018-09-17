@@ -1,5 +1,5 @@
 Posts
 ~~~~~
 
-.. autoclass:: dpaypy.post.Post
+.. autoclass:: creapy.post.Post
    :members:

@@ -1,5 +1,5 @@
 ***************
-dPay Client
+Crea Client
 ***************
 
 .. warning:: This class is going to be deprecated soon!
@@ -7,11 +7,11 @@ dPay Client
 Configuration
 #############
 
-.. autoclass:: dpaypyapi.dpayclient.ExampleConfig
+.. autoclass:: creapyapi.creaclient.ExampleConfig
     :members:
 
-DPayClient
+CreaClient
 ##############
 
-.. autoclass:: dpaypyapi.dpayclient.DPayClient
+.. autoclass:: creapyapi.creaclient.CreaClient
     :members:

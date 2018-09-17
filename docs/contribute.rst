@@ -1,4 +1,4 @@
-Contributing to dpay-lib 
+Contributing to crea-lib
 ==========================
 
 We welcome your contributions to our project.

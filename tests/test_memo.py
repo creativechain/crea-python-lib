@@ -1,6 +1,6 @@
-from dpaypybase import transactions
+from creapybase import transactions
 from graphenebase.account import PrivateKey, PublicKey, Address
-from dpaypybase import memo as Memo
+from creapybase import memo as Memo
 import random
 import unittest
 

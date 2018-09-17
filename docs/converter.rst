@@ -1,5 +1,5 @@
 Converter
 ~~~~~~~~~
 
-.. autoclass:: dpaypy.converter.Converter
+.. autoclass:: creapy.converter.Converter
    :members:

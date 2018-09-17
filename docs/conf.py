@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# dpay-lib documentation build configuration file, created by
+# crea-lib documentation build configuration file, created by
 # sphinx-quickstart on Fri Jun  5 14:06:38 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -48,9 +48,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'dpay-lib'
-copyright = '2018, dPay DAO'
-author = 'dPay DAO'
+project = 'crea-lib'
+copyright = '2018, Crea DAO'
+author = 'Crea DAO'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -202,7 +202,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'dpay-libdoc'
+htmlhelp_basename = 'crea-libdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -224,7 +224,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'dpay-lib.tex', 'dpay-lib Documentation',
+  (master_doc, 'crea-lib.tex', 'crea-lib Documentation',
    author, 'manual'),
 ]
 
@@ -254,7 +254,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'dpay-lib', 'dpay-lib Documentation',
+    (master_doc, 'crea-lib', 'crea-lib Documentation',
      [author], 1)
 ]
 
@@ -268,8 +268,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'dpay-lib', 'dpay-lib Documentation',
-   author, 'dpay-lib', 'One line description of project.',
+  (master_doc, 'crea-lib', 'crea-lib Documentation',
+   author, 'crea-lib', 'One line description of project.',
    'Miscellaneous'),
 ]
 

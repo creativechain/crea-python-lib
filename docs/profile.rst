@@ -1,5 +1,5 @@
 Profile
 ~~~~~~~~~
 
-.. autoclass:: dpaypy.profile.Profile
+.. autoclass:: creapy.profile.Profile
    :members:

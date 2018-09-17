@@ -1,9 +1,9 @@
 **************
-DPayWalletRPC
+CreaWalletRPC
 **************
 
 .. warning:: This is a low level class that can be used in combination with
-             ``DPayClient``. Do not use this class unless you know what
+             ``CreaClient``. Do not use this class unless you know what
              you are doing!
 
 We now need to distinguish functionalities. If we want to only access the
@@ -21,5 +21,5 @@ cli_wallet that has the required private keys imported. We here assume:
 Definition
 ##########
 
-.. autoclass:: dpaypyapi.dpaywalletrpc.DPayWalletRPC
+.. autoclass:: creapyapi.creawalletrpc.CreaWalletRPC
     :members: rpcexec, __getattr__

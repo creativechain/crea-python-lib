@@ -1,5 +1,5 @@
 Dex
 ~~~
 
-.. autoclass:: dpaypy.dex.Dex
+.. autoclass:: creapy.dex.Dex
     :members:

@@ -1,23 +1,23 @@
-Welcome to dpay-lib's documentation!
+Welcome to crea-lib's documentation!
 ===============================================
 
-dPayPY is a tool to interact with the dPay network using Python 3 and
-dpay-lib.
+CreaPY is a tool to interact with the Crea network using Python 3 and
+crea-lib.
 
-* **dpaycli's** home is `github.com/dpays/dpaycli <https://github.com/dpays/dpaycli>`_
-* **dpay-lib's** home is `github.com/dpays/dpay-python-lib <https://github.com/dpays/dpay-python-lib>`_
+* **creacli's** home is `github.com/creativechain/creacli <https://github.com/creativechain/creacli>`_
+* **crea-lib's** home is `github.com/creativechain/crea-python-lib <https://github.com/creativechain/crea-python-lib>`_
 
 Library
 -------
 
-The ``dpaypy``-library can be used to interface with the dPay
+The ``creapy``-library can be used to interface with the Crea
 blockchain. It comes with
 
 * it's own wallet,
 * a configuration database
 * default settings that enable to get started right away
 
-We recommend to also install `dpaycli <http://library.dpays.io/dpaycli>`_
+We recommend to also install `creacli <http://library.creas.io/creacli>`_
 which is an easy to use command line tools to use many of the features
 of this library.
 
@@ -33,13 +33,13 @@ Getting Started
    contribute
 
 
-dpay-lib's Modules
+crea-lib's Modules
 ----------------------
 
 .. toctree::
    :maxdepth: 3
 
-   dpay
+   crea
    account
    block
    blockchain

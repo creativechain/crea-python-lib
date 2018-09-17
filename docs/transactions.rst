@@ -16,7 +16,7 @@ We load the class for manual transaction construction via:
 
 .. code-block:: python
 
-    from dpaypybase import transactions
+    from creapybase import transactions
 
 Construction
 ############

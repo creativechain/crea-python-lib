@@ -1,7 +1,7 @@
 import unittest
-from dpaypy.account import Account
+from creapy.account import Account
 
-testaccount = "jared"
+testaccount = "tridex"
 
 
 class Testcases(unittest.TestCase):

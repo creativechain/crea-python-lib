@@ -1,5 +1,5 @@
 Utilities
 ~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: dpaypy.utils
+.. autoclass:: creapy.utils
    :members:

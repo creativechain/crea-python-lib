@@ -1,4 +1,4 @@
-from dpay.blockchain import Blockchain
+from crea.blockchain import Blockchain
 
 # parse the whole chain
 for event in Blockchain().replay():
@@ -17,10 +17,10 @@ for payment in history:
     print("@%s sent %s to @%s" % (payment['from'], payment['amount'], payment['to']))
 
 # Output:
-# @victoriart sent 1.000 BBD to @null
-# @dude sent 5.095 BEX to @bittrex
-# @devil sent 5.107 BEX to @poloniex
-# @pinoytravel sent 0.010 BBD to @null
-# @aladdin sent 5.013 BEX to @poloniex
-# @mrwang sent 31.211 BEX to @blocktrades
-# @kodi sent 0.030 BBD to @dpaybingo
+# @victoriart sent 1.000 CBD to @null
+# @dude sent 5.095 CREA to @bittrex
+# @devil sent 5.107 CREA to @poloniex
+# @pinoytravel sent 0.010 CBD to @null
+# @aladdin sent 5.013 CREA to @poloniex
+# @mrwang sent 31.211 CREA to @blocktrades
+# @kodi sent 0.030 CBD to @creabingo

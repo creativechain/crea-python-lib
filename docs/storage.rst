@@ -1,14 +1,14 @@
 Storage
 ~~~~~~~~~
 
-.. autoclass:: dpaypy.storage.DataDir
+.. autoclass:: creapy.storage.DataDir
    :members:
 
-.. autoclass:: dpaypy.storage.Key
+.. autoclass:: creapy.storage.Key
    :members:
 
-.. autoclass:: dpaypy.storage.Configuration
+.. autoclass:: creapy.storage.Configuration
    :members:
 
-.. autoclass:: dpaypy.storage.MasterPassword
+.. autoclass:: creapy.storage.MasterPassword
    :members:

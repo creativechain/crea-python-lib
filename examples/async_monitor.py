@@ -1,4 +1,4 @@
-from dpay.utils import parse_time
+from crea.utils import parse_time
 
 try:
     import asyncio
@@ -10,7 +10,7 @@ try:
 except ImportError:
     raise ImportError("Missing dependency: aiohttp")
 
-from dpayapi.dpayasyncclient import DPayAsyncClient, Config
+from creaapi.creaasyncclient import CreaAsyncClient, Config
 import re
 
 account = "witness-account"  # Replace with  account you wish to monitor
@@ -28,31 +28,31 @@ def read_time(time_string):
 
 
 @asyncio.coroutine
-def get_dpay_price(sess):
+def get_crea_price(sess):
     response = yield from sess.get("https://coinmarketcap-nexuist.rhcloud.com/api/bex")
     ret = yield from response.json()
     return ret["price"]["usd"]
 
 
 @asyncio.coroutine
-def get_witness_price_feed(dpay, acct):
-    r = yield from dpay.wallet.get_witness(acct)
-    last_update_time = read_time(r["last_bbd_exchange_update"])
-    p = r["bbd_exchange_rate"]
+def get_witness_price_feed(crea, acct):
+    r = yield from crea.wallet.get_witness(acct)
+    last_update_time = read_time(r["last_cbd_exchange_update"])
+    p = r["cbd_exchange_rate"]
     last_price = read_asset(p["base"])["value"] / read_asset(p["quote"])["value"]
     return (last_update_time, last_price)
 
 
 @asyncio.coroutine
-def start(dpay):
+def start(crea):
     with aiohttp.ClientSession() as session:
         futures = {"time": None, "exchange_price": None, "witness_price": None, "db": None}
-        last_witness_update_time, last_witness_price = yield from get_witness_price_feed(dpay, account)
-        r = yield from dpay.db.get_dynamic_global_properties()
+        last_witness_update_time, last_witness_price = yield from get_witness_price_feed(crea, account)
+        r = yield from crea.db.get_dynamic_global_properties()
         last_time = read_time(r["time"])
         cur_time = last_time
         first_time = True
-        dpay_price = yield from get_dpay_price(session)
+        crea_price = yield from get_crea_price(session)
         futures["time"] = asyncio.async(asyncio.sleep(0))
         needs_updating = False
         while True:
@@ -72,14 +72,14 @@ def start(dpay):
                         futures["time"] = asyncio.async(asyncio.sleep(3))
                         if futures["db"]:
                             futures["db"].cancel()
-                        futures["db"] = yield from dpay.db.get_dynamic_global_properties(future=True)
+                        futures["db"] = yield from crea.db.get_dynamic_global_properties(future=True)
                     elif k == "exchange_price":
-                        dpay_price = f.result()
-                        if abs(1 - last_witness_price / dpay_price) > 0.03 and (cur_time - last_witness_update_time) > 60 * 60:
+                        crea_price = f.result()
+                        if abs(1 - last_witness_price / crea_price) > 0.03 and (cur_time - last_witness_update_time) > 60 * 60:
                             if not needs_updating:
                                 needs_updating = True
                                 print("Price feed needs to be updated due to change in price.")
-                                print("Current witness price: {} $/BEX   Current exchange price: {} $/BEX".format(last_witness_price, dpay_price))
+                                print("Current witness price: {} $/CREA   Current exchange price: {} $/CREA".format(last_witness_price, crea_price))
                         else:
                             if needs_updating and cur_time - last_witness_update_time < 24 * 60 * 60:
                                 needs_updating = False
@@ -99,9 +99,9 @@ def start(dpay):
                             first_time = False
                             print("Block number {} at time: {}".format(r["head_block_number"], r["time"]))
                             if needs_updating:
-                                print("Price feed still needs updating to {} $/BEX".format(dpay_price))
-                            futures["exchange_price"] = asyncio.async(get_dpay_price(session))
-                            futures["witness_price"] = asyncio.async(get_witness_price_feed(dpay, account))
+                                print("Price feed still needs updating to {} $/CREA".format(crea_price))
+                            futures["exchange_price"] = asyncio.async(get_crea_price(session))
+                            futures["witness_price"] = asyncio.async(get_witness_price_feed(crea, account))
                             last_time = cur_time
                         if cur_time - last_witness_update_time >= 24 * 60 * 60:
                             if not needs_updating:
@@ -111,5 +111,5 @@ def start(dpay):
 
 
 if __name__ == "__main__":
-    dpay = DPayAsyncClient(Config(config_file="async_monitor_config.yml"))
-    dpay.run([start])  # If multiple coroutines were specified in the array, they would run concurrently
+    crea = CreaAsyncClient(Config(config_file="async_monitor_config.yml"))
+    crea.run([start])  # If multiple coroutines were specified in the array, they would run concurrently

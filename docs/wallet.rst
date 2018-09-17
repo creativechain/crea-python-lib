@@ -1,5 +1,5 @@
 Wallet
 ~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: dpaypy.wallet.Wallet
+.. autoclass:: creapy.wallet.Wallet
    :members:

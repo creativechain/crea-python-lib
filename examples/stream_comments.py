@@ -1,7 +1,7 @@
-from dpayapi.dpaynoderpc import DPayNodeRPC
+from creaapi.creanoderpc import CreaNodeRPC
 from pprint import pprint
 
-rpc = DPayNodeRPC("wss://dpayd.dpays.io/ws")
+rpc = CreaNodeRPC("wss://cread.creas.io/ws")
 
 for a in rpc.stream("comment", start=1893850):
     pprint(a)

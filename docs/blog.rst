@@ -6,10 +6,10 @@ Read a users Blog
 
 .. code-block:: python
 
-   from dpaypy.blog import Blog
+   from creapy.blog import Blog
    print(Blog("jared"))
 
-This returns a list of :class:`dpay.post.Post`.
+This returns a list of :class:`crea.post.Post`.
 
-.. autoclass:: dpaypy.blog.Blog
+.. autoclass:: creapy.blog.Blog
    :members:

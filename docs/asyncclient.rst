@@ -1,5 +1,5 @@
 *************************
-Asynchronous dPay Client
+Asynchronous Crea Client
 *************************
 
 .. warning:: This is a low level class. Do not use this class unless you
@@ -8,11 +8,11 @@ Asynchronous dPay Client
 Configuration
 #############
 
-.. autoclass:: dpaypyapi.dpayasyncclient.Config
+.. autoclass:: creapyapi.creaasyncclient.Config
     :members:
 
-DPayAsyncClient
+CreaAsyncClient
 ################
 
-.. autoclass:: dpaypyapi.dpayasyncclient.DPayAsyncClient
+.. autoclass:: creapyapi.creaasyncclient.CreaAsyncClient
     :members:

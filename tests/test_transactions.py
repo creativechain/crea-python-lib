@@ -1,9 +1,9 @@
 import unittest
 from binascii import hexlify
 from pprint import pprint
-from dpaypybase.account import PrivateKey
-from dpaypybase.transactions import Signed_Transaction
-from dpaypybase import operations
+from creapybase.account import PrivateKey
+from creapybase.transactions import Signed_Transaction
+from creapybase import operations
 from collections import OrderedDict
 
 wif = "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"
@@ -74,7 +74,7 @@ class Testcases(unittest.TestCase):
     def test_create_account(self):
         op = operations.Account_create(
             **{'creator': 'jared',
-               'fee': '10.000 BEX',
+               'fee': '10.000 CREA',
                'json_metadata': '',
                'memo_key': 'DWB6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
                'new_account_name': 'fsafaasf',
@@ -132,7 +132,7 @@ class Testcases(unittest.TestCase):
         op = operations.Transfer(
             **{"from": "foo",
                "to": "baar",
-               "amount": "111.110 BEX",
+               "amount": "111.110 CREA",
                "memo": "Fooo"
                }
         )
@@ -158,7 +158,7 @@ class Testcases(unittest.TestCase):
         op = operations.Transfer_to_vesting(
             **{"from": "foo",
                "to": "baar",
-               "amount": "111.110 BEX",
+               "amount": "111.110 CREA",
                }
         )
         ops = [operations.Operation(op)]
@@ -182,7 +182,7 @@ class Testcases(unittest.TestCase):
         op = operations.Transfer_to_vesting(
             **{"from": "foo",
                "to": "baar",
-               "amount": "111.110 BEX",
+               "amount": "111.110 CREA",
                }
         )
         ops = [operations.Operation(op)]
@@ -207,7 +207,7 @@ class Testcases(unittest.TestCase):
             **{
                 "from": "testuser",
                 "to": "testuser",
-                "amount": "1.000 BEX",
+                "amount": "1.000 CREA",
                 "memo": "testmemo",
             }
         )
@@ -233,7 +233,7 @@ class Testcases(unittest.TestCase):
                 "from": "testuser",
                 "request_id": 9001,
                 "to": "testser",
-                "amount": "100.000 BBD",
+                "amount": "100.000 CBD",
                 "memo": "memohere",
             }
         )
@@ -281,8 +281,8 @@ class Testcases(unittest.TestCase):
         op = operations.Limit_order_create(
             **{"owner": "",
                "orderid": 0,
-               "amount_to_sell": "0.000 BEX",
-               "min_to_receive": "0.000 BEX",
+               "amount_to_sell": "0.000 CREA",
+               "min_to_receive": "0.000 CREA",
                "fill_or_kill": False,
                "expiration": "2016-12-31T23:59:59"
                }
@@ -405,7 +405,7 @@ class Testcases(unittest.TestCase):
         op = operations.Convert(
             **{"owner": "jared",
                "requestid": 2342343235,
-               "amount": "100.000 BBD"}
+               "amount": "100.000 CBD"}
         )
         ops = [operations.Operation(op)]
         tx = Signed_Transaction(
@@ -600,8 +600,8 @@ class Testcases(unittest.TestCase):
     def test_feed_publish(self):
         op = operations.Feed_publish(
             **{"publisher": "jared",
-               "exchange_rate": {"base": "1.000 BBD",
-                                 "quote": "4.123 BEX"}})
+               "exchange_rate": {"base": "1.000 CBD",
+                                 "quote": "4.123 CREA"}})
         ops = [operations.Operation(op)]
         tx = Signed_Transaction(
             ref_block_num=ref_block_num,
@@ -623,10 +623,10 @@ class Testcases(unittest.TestCase):
             **{"owner": "jared",
                "url": "foooobar",
                "block_signing_key": "DWB6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp",
-               "props": {"account_creation_fee": "10.000 BEX",
+               "props": {"account_creation_fee": "10.000 CREA",
                          "maximum_block_size": 1111111,
-                         "bbd_interest_rate": 1000},
-               "fee": "10.000 BEX",
+                         "cbd_interest_rate": 1000},
+               "fee": "10.000 CREA",
                }
         )
         ops = [operations.Operation(op)]
@@ -709,9 +709,9 @@ class Testcases(unittest.TestCase):
         op = operations.Comment_options(
             **{
                 "author": "jared",
-                "permlink": "dpaypy",
-                "max_accepted_payout": "1000000.000 BBD",
-                "percent_dpay_dollars": 10000,
+                "permlink": "creapy",
+                "max_accepted_payout": "1000000.000 CBD",
+                "percent_crea_dollars": 10000,
                 "allow_votes": True,
                 "allow_curation_rewards": True,
                 "extensions": [
@@ -758,9 +758,9 @@ class Testcases(unittest.TestCase):
         op = operations.Comment_options(
             **{
                 "author": "jared",
-                "permlink": "dpaypy",
-                "max_accepted_payout": "1000000.000 BBD",
-                "percent_dpay_dollars": 10000,
+                "permlink": "creapy",
+                "max_accepted_payout": "1000000.000 CBD",
+                "percent_crea_dollars": 10000,
                 "allow_votes": True,
                 "allow_curation_rewards": True,
                 "extensions": [

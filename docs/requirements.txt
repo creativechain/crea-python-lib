@@ -1,5 +1,5 @@
-dpay-graphenelib
-dpay-lib
+crea-graphenelib
+crea-lib
 pyyaml
 pycrypto==2.6.1
 appdirs==1.4.0
