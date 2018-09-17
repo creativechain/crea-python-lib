@@ -35,21 +35,21 @@ class Converter(object):
             (Amount(info["total_vesting_shares"]).amount / 1e6)
         )
 
-    def vests_to_bp(self, vests):
+    def vests_to_cp(self, vests):
         """ Obtain BP from VESTS (not MVESTS!)
 
             :param number vests: Vests to convert to BP
         """
         return vests / 1e6 * self.crea_per_mvests()
 
-    def sp_to_vests(self, bp):
+    def cp_to_vests(self, bp):
         """ Obtain VESTS (not MVESTS!) from BP
 
             :param number bp: BP to convert
         """
         return bp * 1e6 / self.crea_per_mvests()
 
-    def sp_to_rshares(self, bp, voting_power=10000, vote_pct=10000):
+    def cp_to_rshares(self, bp, voting_power=10000, vote_pct=10000):
         """ Obtain the r-shares
 
             :param number bp: CREA Power
@@ -57,7 +57,7 @@ class Converter(object):
             :param int vote_pct: voting participation (100% = 10000)
         """
         # calculate our account voting shares (from vests), mine is 6.08b
-        vesting_shares = int(self.bp_to_vests(bp) * 1e6)
+        vesting_shares = int(self.cp_to_vests(bp) * 1e6)
 
         # calculate vote rshares
         power = (((voting_power * vote_pct) / 10000) / 200) + 1

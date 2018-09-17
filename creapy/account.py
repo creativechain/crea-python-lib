@@ -68,7 +68,7 @@ class Account(dict):
     @property
     def bp(self):
         vests = Amount(self['vesting_shares']).amount
-        return round(self.converter.vests_to_sp(vests), 3)
+        return round(self.converter.vests_to_cp(vests), 3)
 
     @property
     def rep(self):
@@ -139,8 +139,8 @@ class Account(dict):
             if timestamp > trailing_24hr_t:
                 reward_24h += Amount(reward['reward']).amount
 
-        reward_7d = self.converter.vests_to_sp(reward_7d)
-        reward_24h = self.converter.vests_to_sp(reward_24h)
+        reward_7d = self.converter.vests_to_cp(reward_7d)
+        reward_24h = self.converter.vests_to_cp(reward_24h)
         return {
             "24hr": reward_24h,
             "7d": reward_7d,
