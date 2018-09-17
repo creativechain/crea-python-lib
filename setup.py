@@ -9,7 +9,7 @@ except LookupError:
     ascii = codecs.lookup('ascii')
     codecs.register(lambda name, enc=ascii: {True: enc}.get(name == 'mbcs'))
 
-VERSION = '0.1.5'
+VERSION = '0.1.0'
 
 setup(
     name='crea-lib',
@@ -17,10 +17,10 @@ setup(
     description='Python library for Crea',
     long_description=open('README.md').read(),
     download_url='https://github.com/creativechain/crea-python-lib/tarball/' + VERSION,
-    author='Jared Rice Sr.',
-    author_email='jared@benchx.io',
-    maintainer='Jared Rice Sr.',
-    maintainer_email='jared@benchx.io',
+    author='Creativechain Foundation',
+    author_email='info@creativechain.org',
+    maintainer='Creativechain Foundation',
+    maintainer_email='info@creativechain.org',
     url='http://library.creas.io/crea-python-lib',
     keywords=['crea', 'library', 'api', 'rpc', 'transactions'],
     packages=["creapy", "creapyapi", "creapybase"],
@@ -34,7 +34,7 @@ setup(
         'Topic :: Office/Business :: Financial',
     ],
     install_requires=[
-        "crea-graphenelib>=0.1.2",
+        "crea-graphenelib>=0.1.0",
         "websockets>=2.0",
         "scrypt>=0.7.1",
         "diff-match-patch>=20121119",
