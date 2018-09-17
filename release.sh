@@ -3,9 +3,14 @@
 TAG=$1
 MSG="Version ${TAG}"
 
+echo "Adding files to commit..."
 git add .
-git commit -m ${MSG}
-git tag v${TAG} -m ${MSG}
+
+echo "Creating commit ${MSG}..."
+git commit -m "${MSG}"
+
+echo "Tagging..."
+git tag v${TAG} -m "${MSG}"
 
 rm -rf dist/*
 
