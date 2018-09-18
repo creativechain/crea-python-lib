@@ -15,7 +15,7 @@ from graphenebase.operations import (
 )
 from .operationids import operations
 
-default_prefix = "DWB"
+default_prefix = "CREA"
 
 asset_precision = {
     "CREA": 3,
@@ -462,7 +462,7 @@ class Witness_update(GrapheneObject):
             prefix = kwargs.pop("prefix", default_prefix)
 
             if not kwargs["block_signing_key"]:
-                kwargs["block_signing_key"] = "DWB1111111111111111111111111111111114T1Anm"
+                kwargs["block_signing_key"] = "CREA1111111111111111111111111111111114T1Anm"
             super().__init__(OrderedDict([
                 ('owner', String(kwargs["owner"])),
                 ('url', String(kwargs["url"])),

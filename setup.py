@@ -34,7 +34,7 @@ setup(
         'Topic :: Office/Business :: Financial',
     ],
     install_requires=[
-        "crea-graphenelib>=0.1.1",
+        "crea-graphenelib>=0.1.2",
         "websockets>=2.0",
         "scrypt>=0.7.1",
         "diff-match-patch>=20121119",

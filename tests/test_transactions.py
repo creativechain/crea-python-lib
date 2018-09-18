@@ -76,26 +76,26 @@ class Testcases(unittest.TestCase):
             **{'creator': 'jared',
                'fee': '10.000 CREA',
                'json_metadata': '',
-               'memo_key': 'DWB6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
+               'memo_key': 'CREA6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
                'new_account_name': 'fsafaasf',
                'owner': {'account_auths': [],
-                         'key_auths': [['DWB5jYVokmZHdEpwo5oCG3ES2Ca4VYzy6tM8pWWkGdgVnwo2mFLFq',
+                         'key_auths': [['CREA5jYVokmZHdEpwo5oCG3ES2Ca4VYzy6tM8pWWkGdgVnwo2mFLFq',
                                         1], [
-                                       'DWB6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
+                                       'CREA6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
                                        1]],
                          'weight_threshold': 1},
                'active': {'account_auths': [],
-                          'key_auths': [['DWB6pbVDAjRFiw6fkiKYCrkz7PFeL7XNAfefrsREwg8MKpJ9VYV9x',
+                          'key_auths': [['CREA6pbVDAjRFiw6fkiKYCrkz7PFeL7XNAfefrsREwg8MKpJ9VYV9x',
                                          1], [
-                                        'DWB6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
+                                        'CREA6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
                                         1]],
                           'weight_threshold': 1},
                'posting': {'account_auths': [],
-                           'key_auths': [['DWB8CemMDjdUWSV5wKotEimhK6c4dY7p2PdzC2qM1HpAP8aLtZfE7',
+                           'key_auths': [['CREA8CemMDjdUWSV5wKotEimhK6c4dY7p2PdzC2qM1HpAP8aLtZfE7',
                                           1], [
-                                         'DWB6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
+                                         'CREA6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
                                          1], [
-                                         'DWB6pbVDAjRFiw6fkiKYCrkz7PFeL7XNAfefrsREwg8MKpJ9VYV9x',
+                                         'CREA6pbVDAjRFiw6fkiKYCrkz7PFeL7XNAfefrsREwg8MKpJ9VYV9x',
                                          1
                                          ]],
                            'weight_threshold': 1}}
@@ -310,22 +310,22 @@ class Testcases(unittest.TestCase):
                "posting": {
                    "weight_threshold": 1,
                    "account_auths": [["jared", 1], ["stan", 1]],
-                   "key_auths": [["DWB6KChDK2sns9MwugxkoRvPEnyjuTxHN5upGsZ1EtanCffqBVVX3", 1],
-                                 ["DWB7sw22HqsXbz7D2CmJfmMwt9rimtk518dRzsR1f8Cgw52dQR1pR", 1]]
+                   "key_auths": [["CREA6KChDK2sns9MwugxkoRvPEnyjuTxHN5upGsZ1EtanCffqBVVX3", 1],
+                                 ["CREA7sw22HqsXbz7D2CmJfmMwt9rimtk518dRzsR1f8Cgw52dQR1pR", 1]]
                },
                "owner": {
                    "weight_threshold": 1,
                    "account_auths": [],
-                   "key_auths": [["DWB7sw22HqsXbz7D2CmJfmMwt9rimtk518dRzsR1f8Cgw52dQR1pR", 1],
-                                 ["DWB6KChDK2sns9MwugxkoRvPEnyjuTxHN5upGsZ1EtanCffqBVVX3", 1]]
+                   "key_auths": [["CREA7sw22HqsXbz7D2CmJfmMwt9rimtk518dRzsR1f8Cgw52dQR1pR", 1],
+                                 ["CREA6KChDK2sns9MwugxkoRvPEnyjuTxHN5upGsZ1EtanCffqBVVX3", 1]]
                },
                "active": {
                    "weight_threshold": 2,
                    "account_auths": [],
-                   "key_auths": [["DWB6KChDK2sns9MwugxkoRvPEnyjuTxHN5upGsZ1EtanCffqBVVX3", 1],
-                                 ["DWB7sw22HqsXbz7D2CmJfmMwt9rimtk518dRzsR1f8Cgw52dQR1pR", 1]]
+                   "key_auths": [["CREA6KChDK2sns9MwugxkoRvPEnyjuTxHN5upGsZ1EtanCffqBVVX3", 1],
+                                 ["CREA7sw22HqsXbz7D2CmJfmMwt9rimtk518dRzsR1f8Cgw52dQR1pR", 1]]
                },
-               "memo_key": "DWB728uLvStTeAkYJsQefks3FX8yfmpFHp8wXw3RY3kwey2JGDooR",
+               "memo_key": "CREA728uLvStTeAkYJsQefks3FX8yfmpFHp8wXw3RY3kwey2JGDooR",
                "json_metadata": ""}
         )
         ops = [operations.Operation(op)]
@@ -622,7 +622,7 @@ class Testcases(unittest.TestCase):
         op = operations.Witness_update(
             **{"owner": "jared",
                "url": "foooobar",
-               "block_signing_key": "DWB6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp",
+               "block_signing_key": "CREA6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp",
                "props": {"account_creation_fee": "10.000 CREA",
                          "maximum_block_size": 1111111,
                          "cbd_interest_rate": 1000},

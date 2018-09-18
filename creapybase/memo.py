@@ -9,7 +9,7 @@ import struct
 " This class and the methods require python3 "
 assert sys.version_info[0] == 3, "crea-graphenelib requires python3"
 
-default_prefix = "DWB"
+default_prefix = "CREA"
 
 
 def get_shared_secret(priv, pub):

@@ -39,25 +39,29 @@ class CreaNodeRPC(GrapheneWebsocketRPC):
     """
     call_id = 0
     api_id = {}
+    chain = ""
+    chain_params = {}
 
     def __init__(self,
                  urls,
                  user="",
                  password="",
+                 chain = "CREA",
                  **kwargs):
         self.apis = kwargs.pop(
             "apis",
             ["database", "network_broadcast"]
         )
         super(CreaNodeRPC, self).__init__(urls, user, password, **kwargs)
+        self.chain = kwargs.get("chain", "CREA")
         self.chain_params = self.get_network()
 
     def register_apis(self, apis=None):
         for api in (apis or self.apis):
             api = api.replace("_api", "")
-            self.api_id[api] = self.get_api_by_name("%s_api" % api, api_id=1)
-            if not self.api_id[api] and not isinstance(self.api_id[api], int):
-                raise NoAccessApi("No permission to access %s API. " % api)
+            # self.api_id[api] = self.get_api_by_name("%s_api" % api, api_id=1)
+            # if not self.api_id[api] and not isinstance(self.api_id[api], int):
+            #     raise NoAccessApi("No permission to access %s API. " % api)
 
     def get_account(self, name):
         account = self.get_accounts([name])
@@ -105,10 +109,7 @@ class CreaNodeRPC(GrapheneWebsocketRPC):
             dictionary with keys chain_id, prefix, and other chain
             specific settings
         """
-        props = self.get_dynamic_global_properties()
-        chain = props["current_supply"].split(" ")[1]
-        assert chain in known_chains, "The chain you are connecting to is not supported"
-        return known_chains.get(chain)
+        return known_chains.get(self.chain)
 
     def rpcexec(self, payload):
         """ Execute a call by sending the payload.
