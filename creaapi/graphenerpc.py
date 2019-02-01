@@ -367,7 +367,6 @@ class GrapheneRPC(object):
         :raises RPCError: if the server returns an error
         """
         log.debug(json.dumps(payload))
-        print(json.dumps(payload, sort_keys=True))
         if self.nodes.working_nodes_count == 0:
             raise WorkingNodeMissing
         if self.url is None:

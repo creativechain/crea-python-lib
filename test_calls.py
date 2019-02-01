@@ -23,5 +23,5 @@ crea = Crea(node=['https://node1.creary.net'], custom_chains={
     }
 })
 
-block = crea.rpc.get_followers({'account': 'ander7agar', 'start': '', 'type': 'blog', 'limit': 100}, api='follow')
+block = crea.rpc.get_following({'account': 'ander7agar', 'start': '', 'type': 'blog', 'limit': 100}, api='follow')
 print(json.dumps(block, sort_keys=True))
