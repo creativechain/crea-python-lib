@@ -1,89 +1,206 @@
 Quickstart
-##########
+==========
 
-As a quickstart example, let's create a notification bot for our own account and have a daemon send out an email to us if someone referred to our user.
+Crea
+-----
+The crea object is the connection to the Crea blockchain.
+By creating this object different options can be set.
 
-Crea Instance
-~~~~~~~~~~~~~~
+.. note:: All init methods of crea classes can be given
+          the ``crea_instance=`` parameter to assure that
+          all objects use the same crea object. When the
+          ``crea_instance=`` parameter is not used, the
+          crea object is taken from get_shared_crea_instance().
 
-Let's start by creating an instance to the Crea network.
-
-.. code-block:: python
-
-    from creapy import Crea
-    crea = Crea()
-
-.. note:: Per default, this call connects to the API node offered by dSite
-          Inc. If their server is under heavy load, you may see better and
-          faster results using your own server, passed as first argument.
-
-Waiting for new comments
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Now we use `crea.stream_comment()` to wait and inspect all new comments:
+          :func:`crea.instance.shared_crea_instance` returns a global instance of crea.
+          It can be set by :func:`crea.instance.set_shared_crea_instance` otherwise it is created
+          on the first call.
 
 .. code-block:: python
 
-   for comment in crea.stream_comments():
-       # do something with comment
-
-The `comment` object is an instance of `Crea.Post` and offers the following calls:
-
-* ``comment.reply()``
-* ``comment.upvote()``
-* ``comment.downvote()``
-
-Most important attributes are probably:
-
-* ``comment.author``
-* ``comment.permlink``
-* ``comment.title``
-* ``comment.body``
-
-These attributes can also be access through their keys (e.g. ``comment["body"]``).
-
-For our notification, we simply check if `@accountname` exists in the body:
+   from crea import Crea
+   from crea.account import Account
+   stm = Crea()
+   account = Account("test", crea_instance=stm)
 
 .. code-block:: python
 
-   if "@%s" % accountname in c["body"]:
-        # send mail
+   from crea import Crea
+   from crea.account import Account
+   from crea.instance import set_shared_crea_instance
+   stm = Crea()
+   set_shared_crea_instance(stm)
+   account = Account("test")
 
-If this check evaluates as true, we send out an email.
+Wallet and Keys
+---------------
+Each account has the following keys:
 
-Full Code
-~~~~~~~~~
+* Posting key (allows accounts to post, vote, edit, recrea and follow/mute)
+* Active key (allows accounts to transfer, power up/down, voting for witness, ...)
+* Memo key (Can be used to encrypt/decrypt memos)
+* Owner key (The most important key, should not be used with crea)
 
-A full example for our notification daemon looks like this:
+Outgoing operation, which will be stored in the crea blockchain, have to be
+signed by a private key. E.g. Comment or Vote operation need to be signed by the posting key
+of the author or upvoter. Private keys can be provided to crea temporary or can be
+stored encrypted in a sql-database (wallet).
+
+.. note:: Before using the wallet the first time, it has to be created and a password has
+          to set. The wallet content is available to creapy and all python scripts, which have
+          access to the sql database file.
+
+Creating a wallet
+~~~~~~~~~~~~~~~~~
+``crea.wallet.wipe(True)`` is only necessary when there was already an wallet created.
 
 .. code-block:: python
 
-    from creapy import Crea
-    import os
-    import sendgrid
-    crea = Crea()
-    sg = sendgrid.SendGridClient(
-        os.environ['SENDGRID_USERNAME'],
-        os.environ['SENDGRID_PASSWORD']
-    )
-    message = sendgrid.Mail()
-    addresses = {"jared": "mail@jrice.io"}
-    # addresses = os.environ["ADDRESSES"]
-    for c in crea.stream_comments():
-        for user in addresses.keys():
-            if "@%s" % user in c["body"]:
-                message.add_to(addresses[user])
-                message.set_subject('Notification on Crea')
-                message.set_text(
-                    "You have been messaged by %s " % (c["author"]) +
-                    "in the post @%s/%s" % (c["author"], c["permlink"]) +
-                    "\n\n" +
-                    "You can read the post on dSite.io:\n" +
-                    "http://dsite.io/%s/%s#@%s/%s"
-                    % (c["category"],
-                        c["openingPostIdentifier"],
-                        c["author"], c["permlink"])
-                )
-                message.set_from('notify@crea')
-                status, msg = sg.send(message)
-                print("\nMessage sent!\n")
+   from crea import Crea
+   crea = Crea()
+   crea.wallet.wipe(True)
+   crea.wallet.unlock("wallet-passphrase")
+
+Adding keys to the wallet
+~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: python
+
+   from crea import Crea
+   crea = Crea()
+   crea.wallet.unlock("wallet-passphrase")
+   crea.wallet.addPrivateKey("xxxxxxx")
+   crea.wallet.addPrivateKey("xxxxxxx")
+
+Using the keys in the wallet
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+   from crea import Crea
+   crea = Crea()
+   crea.wallet.unlock("wallet-passphrase")
+   account = Account("test", crea_instance=crea)
+   account.transfer("<to>", "<amount>", "<asset>", "<memo>")
+
+Private keys can also set temporary
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+   from crea import Crea
+   crea = Crea(keys=["xxxxxxxxx"])
+   account = Account("test", crea_instance=crea)
+   account.transfer("<to>", "<amount>", "<asset>", "<memo>")
+
+Receiving information about blocks, accounts, votes, comments, market and witness
+---------------------------------------------------------------------------------
+
+Receive all Blocks from the Blockchain
+
+.. code-block:: python
+
+   from crea.blockchain import Blockchain
+   blockchain = Blockchain()
+   for op in blockchain.stream():
+       print(op)
+
+Access one Block
+
+.. code-block:: python
+
+   from crea.block import Block
+   print(Block(1))
+
+Access an account
+
+.. code-block:: python
+
+   from crea.account import Account
+   account = Account("test")
+   print(account.balances)
+   for h in account.history():
+       print(h)
+
+A single vote
+
+.. code-block:: python
+
+   from crea.vote import Vote
+   vote = Vote(u"@gtg/ffdhu-gtg-witness-log|gandalf")
+   print(vote.json())
+
+All votes from an account
+
+.. code-block:: python
+
+   from crea.vote import AccountVotes
+   allVotes = AccountVotes("gtg")
+
+Access a post
+
+.. code-block:: python
+
+   from crea.comment import Comment
+   comment = Comment("@gtg/ffdhu-gtg-witness-log")
+   print(comment["active_votes"])
+
+Access the market
+
+.. code-block:: python
+
+   from crea.market import Market
+   market = Market("CBD:CREA")
+   print(market.ticker())
+
+Access a witness
+
+.. code-block:: python
+
+   from crea.witness import Witness
+   witness = Witness("gtg")
+   print(witness.is_active)
+
+Sending transaction to the blockchain
+-------------------------------------
+
+Sending a Transfer
+
+.. code-block:: python
+
+   from crea import Crea
+   crea = Crea()
+   crea.wallet.unlock("wallet-passphrase")
+   account = Account("test", crea_instance=crea)
+   account.transfer("null", 1, "CBD", "test")
+
+Upvote a post
+
+.. code-block:: python
+
+   from crea.comment import Comment
+   from crea import Crea
+   crea = Crea()
+   crea.wallet.unlock("wallet-passphrase")
+   comment = Comment("@gtg/ffdhu-gtg-witness-log", crea_instance=crea)
+   comment.upvote(weight=10, voter="test")
+
+Publish a post to the blockchain
+
+.. code-block:: python
+
+   from crea import Crea
+   crea = Crea()
+   crea.wallet.unlock("wallet-passphrase")
+   crea.post("title", "body", author="test", tags=["a", "b", "c", "d", "e"], self_vote=True)
+
+Sell CREA on the market
+
+.. code-block:: python
+
+   from crea.market import Market
+   from crea import Crea
+   crea.wallet.unlock("wallet-passphrase")
+   market = Market("CBD:CREA", crea_instance=crea)
+   print(market.ticker())
+   market.crea.wallet.unlock("wallet-passphrase")
+   print(market.sell(300, 100))  # sell 100 CREA for 300 CREA/CBD

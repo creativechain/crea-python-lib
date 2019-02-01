@@ -1,7 +1,14 @@
-Contributing to crea-lib
-==========================
+Contributing to crea
+====================
 
 We welcome your contributions to our project.
+
+Repository
+----------
+
+The repository of crea is currently located at:
+
+    https://github.com/holgern/crea
 
 Flow
 ----
@@ -15,11 +22,11 @@ to understand is that:
 How to Contribute
 -----------------
 
-0. Familiarize yourself with `contributing on github <https://guides.github.com/activities/contributing-to-open-source/>`
+0. Familiarize yourself with `contributing on github <https://guides.github.com/activities/contributing-to-open-source/>`_
 1. Fork or branch from the master.
 2. Create commits following the commit style
 3. Start a pull request to the master branch
-4. Wait for a @jared or another member to review
+4. Wait for a @holger80 or another member to review
 
 Issues
 ------
@@ -39,8 +46,8 @@ submitting patches and additions. In general, we follow the
 4. **Push** your work back up to your fork
 5. Submit a **Pull request** so that we can review your changes
 
-NOTE: Be sure to merge the latest from "upstream" before making a pull
-request!
+.. note:: Be sure to merge the latest from "upstream" before making a pull
+    request!
 
 Copyright and Licensing
 -----------------------
