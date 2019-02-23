@@ -24,7 +24,7 @@ logging.basicConfig(level=logging.INFO)
 if __name__ == "__main__":
     # stm = Crea(node="https://testnet.timcliff.com/")
     # stm = Crea(node="https://testnet.creaitdev.com")
-    stm = Crea(node="https://node1.creary.net")
+    stm = Crea(node="https://nodes.creary.net")
     stm.wallet.unlock(pwd="pwd123")
 
     account = Account("creabot", crea_instance=stm)

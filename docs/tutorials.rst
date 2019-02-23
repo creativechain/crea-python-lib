@@ -208,7 +208,7 @@ the complete queue is sended at once to the node. The result is a list with repl
 .. code-block:: python
 
     from crea import Crea
-    stm = Crea("https://node1.creary.net")
+    stm = Crea("https://nodes.creary.net")
     stm.rpc.get_config(add_to_queue=True)
     stm.rpc.rpc_queue
 

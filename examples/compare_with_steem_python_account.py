@@ -16,9 +16,9 @@ logging.basicConfig(level=logging.INFO)
 
 
 if __name__ == "__main__":
-    stm = Crea("https://node1.creary.net")
+    stm = Crea("https://nodes.creary.net")
     crea_acc = Account("holger80", crea_instance=stm)
-    stm2 = creaCrea(nodes=["https://node1.creary.net"])
+    stm2 = creaCrea(nodes=["https://nodes.creary.net"])
     crea_acc = creaAccount("holger80", cread_instance=stm2)
 
     # profile

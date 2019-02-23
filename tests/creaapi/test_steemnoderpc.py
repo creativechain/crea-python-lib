@@ -33,9 +33,9 @@ class Testcases(unittest.TestCase):
         nodelist = NodeList()
         nodelist.update_nodes(crea_instance=Crea(node=nodelist.get_nodes(normal=True, appbase=True), num_retries=3))
         cls.nodes = nodelist.get_nodes()
-        if "https://node1.creary.net" in cls.nodes:
-            cls.nodes.remove("https://node1.creary.net")
-        cls.nodes_creait = ["https://node1.creary.net"]
+        if "https://nodes.creary.net" in cls.nodes:
+            cls.nodes.remove("https://nodes.creary.net")
+        cls.nodes_creait = ["https://nodes.creary.net"]
 
         cls.appbase = Crea(
             node=cls.nodes,

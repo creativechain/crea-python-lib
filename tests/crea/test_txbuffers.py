@@ -41,7 +41,7 @@ class Testcases(unittest.TestCase):
             num_retries=10
         )
         cls.creait = Crea(
-            node="https://node1.creary.net",
+            node="https://nodes.creary.net",
             nobroadcast=True,
             keys={"active": wif, "owner": wif, "memo": wif},
             num_retries=10

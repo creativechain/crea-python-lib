@@ -108,7 +108,7 @@ You can see all available commands with ``creapy --help``
 
    Options:
      -n, --node TEXT        URL for public Crea API (e.g.
-                            https://node1.creary.net)
+                            https://nodes.creary.net)
      -o, --offline          Prevent connecting to network
      -d, --no-broadcast     Do not broadcast
      -p, --no-wallet        Do not load the wallet

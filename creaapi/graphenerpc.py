@@ -115,7 +115,7 @@ class GrapheneRPC(object):
             ws = GrapheneRPC("wss://cread.pevo.science","","")
             print(ws.get_account_count())
 
-            ws = GrapheneRPC("https://node1.creary.net","","")
+            ws = GrapheneRPC("https://nodes.creary.net","","")
             print(ws.get_account_count())
 
     .. note:: This class allows to call methods available via

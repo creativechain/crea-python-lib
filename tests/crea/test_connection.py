@@ -15,7 +15,7 @@ class Testcases(unittest.TestCase):
         nodelist = NodeList()
         nodelist.update_nodes(crea_instance=Crea(node=nodelist.get_nodes(exclude_limited=False), num_retries=10))
         b1 = Crea(
-            node="https://node1.creary.net",
+            node="https://nodes.creary.net",
             nobroadcast=True,
             num_retries=10
         )

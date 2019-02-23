@@ -7,7 +7,7 @@ import time
 import sys
 import os
 
-crea = Crea(node=['https://node1.creary.net'], custom_chains={
+crea = Crea(node=['https://nodes.creary.net'], custom_chains={
     "CREA": {
         'chain_assets': [
             {

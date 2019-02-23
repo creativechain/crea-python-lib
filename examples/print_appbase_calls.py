@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 
 
 if __name__ == "__main__":
-    stm = Crea(node="https://node1.creary.net")
+    stm = Crea(node="https://nodes.creary.net")
     # stm = Crea(node="https://testnet.creaitdev.com")
     # stm = Crea(node="wss://appbasetest.timcliff.com")
     # stm = Crea(node="https://api.creaitstage.com")

@@ -145,7 +145,7 @@ def node_answer_time(node):
 
 @click.group(chain=True)
 @click.option(
-    '--node', '-n', default="", help="URL for public Crea API (e.g. https://node1.creary.net)")
+    '--node', '-n', default="", help="URL for public Crea API (e.g. https://nodes.creary.net)")
 @click.option(
     '--offline', '-o', is_flag=True, default=False, help="Prevent connecting to network")
 @click.option(

@@ -18,7 +18,7 @@ from crea.nodelist import NodeList
 from creabase.signedtransactions import Signed_Transaction
 
 wif = "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"
-nodes_appbase = ["https://api.creaitstage.com", "https://api.crea.house", "https://node1.creary.net"]
+nodes_appbase = ["https://api.creaitstage.com", "https://api.crea.house", "https://nodes.creary.net"]
 
 
 class Testcases(unittest.TestCase):

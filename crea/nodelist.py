@@ -27,7 +27,7 @@ class NodeList(list):
     def __init__(self):
         nodes = [
             {
-                "url": "https://node1.creary.net",
+                "url": "https://nodes.creary.net",
                 "version": "0.20.2",
                 "type": "appbase-limited",
                 "owner": "creait",
